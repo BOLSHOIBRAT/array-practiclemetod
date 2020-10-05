@@ -1,4 +1,6 @@
 package ua.step.homework;
+import java.util.Collections;
+import java.util.Arrays;
 
 /**
  * В массиве хранится n явно заданных текстовых строк.
@@ -12,19 +14,22 @@ package ua.step.homework;
  * Примечание: Не использовать методы строк и стандартную сортировку
  */
 public class Task02 {
+
     public static void main(String[] args) {
-        // TODO: Проверяйте методы здесь
+        String[] str = new String[] {"one", "two", "three"};
+        String st;
+        st = join(str);
+        System.out.println(st);
+        st = "->";
+        st = join(str,st);
+        System.out.println(st);
+        sortDesc(str);
     }
 
-    /**
-     * Соединяет массив строк в одну строку разделенную пробелом
-     *
-     * @param strings - массив строк
-     * @return строка состоящая из элементов массив
-     */
     public static String join(String[] strings) {
-        // TODO: удалите исключение и пишите здесь код
-        throw new RuntimeException("Not implemented yet");
+        String g= "";
+        g = String.join(" ", strings[0],strings[1],strings[2]);
+        return g;
     }
 
     /**
@@ -35,8 +40,13 @@ public class Task02 {
      * @return строка состоящая из элементов массива
      */
     public static String join(String[] strings, String glue) {
-        // TODO: удалите исключение и пишите здесь код
-        throw new RuntimeException("Not implemented yet");
+        String str="";
+        for (int i = 0; i < strings.length; i++) {
+            str += strings[i];
+            if(i<strings.length-1)
+                str+=glue;
+        }
+        return str;
     }
 
     /**
@@ -45,8 +55,10 @@ public class Task02 {
      * @param strings - массив строк для сортировки
      */
     public static void sortDesc(String[] strings) {
-        // TODO: удалите исключение и пишите здесь код
-        throw new RuntimeException("Not implemented yet");
+        Arrays.sort(strings, Collections.reverseOrder(String.CASE_INSENSITIVE_ORDER));
+        for(int i = 0; i < strings.length; i++)
+            System.out.println(strings[i]);
+
     }
 
     /**
@@ -55,7 +67,5 @@ public class Task02 {
      * @param strings - массив строк для сортировки
      */
     public static void sortByWordCount(String[] strings) {
-        // TODO: удалите исключение и пишите здесь код
-        throw new RuntimeException("Not implemented yet");
     }
 }
